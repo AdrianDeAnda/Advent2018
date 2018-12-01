@@ -1,9 +1,9 @@
 import itertools
 
-# Solution for first puzzle
-
 with open("input.txt") as n:
     input = [int(line.strip()) for line in n]
+
+# Solution for first puzzle
 
 
 def get_frequency(numbers):

@@ -1,5 +1,6 @@
 # AdventOfCode2018
 
-Solutions for Avent of Code 2018
+Solutions for Advent of Code 2018
 
-github: https://github.com/AdrianDeAnda
+Adrian de Anda:
+- github: https://github.com/AdrianDeAnda
