@@ -26,7 +26,6 @@ def repeated_frequency(numbers, value: int = 0):
         value += n
         if value in seen:
             return value
-            break
         seen.add(value)
 
 
