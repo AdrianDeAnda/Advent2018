@@ -7,7 +7,7 @@ with open("input.txt") as n:
 
 def checksum(ids, twos: int = 0, threes: int = 0):
     for n in range (0, len(ids)):
-        dict = {i:ids[n].count(i) for i in ids[n]}
+        dict = Counter(ids[n])
         if 2 in dict.values():
             twos += 1
         if 3 in dict.values():
