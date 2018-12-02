@@ -20,7 +20,7 @@ print(f"Resulting frequency: {get_frequency(input)}")
 
 
 def repeated_frequency(numbers, value: int = 0):
-    seen = set()
+    seen = {0}
 
     for n in itertools.cycle(int(n) for n in numbers):
         value += n
@@ -29,6 +29,7 @@ def repeated_frequency(numbers, value: int = 0):
         seen.add(value)
 
 
+assert repeated_frequency({+1, -1}) == 0
 assert repeated_frequency([+3, +3, +4, -2, -4]) == 10
 assert repeated_frequency([-6, +3, +8, +5, -6]) == 5
 assert repeated_frequency([+7, +7, -2, -7, -4]) == 14
