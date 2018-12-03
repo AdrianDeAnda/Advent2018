@@ -32,11 +32,9 @@ def count_overlapped(
     data, height: int = 1000, width: int = 1000, overlapped: int = 0
 ):
     matrix = create_matrix(data, height, width)
-    for i in range(0, height):
-        for j in range(0, width):
-            if matrix[i][j] == -1:
-                overlapped += 1
-    return overlapped
+    unique, counts = np.unique(matrix, return_counts=True)
+    values = dict(zip(unique, counts))
+    return values[-1]
 
 
 assert (
