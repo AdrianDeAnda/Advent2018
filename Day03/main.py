@@ -6,8 +6,6 @@ with open("input.txt") as n:
 
 regex = "#([0-9]+) @ ([0-9]+),([0-9]+): ([0-9]+)x([0-9]+)"
 
-# Solution for first puzzle
-
 
 def split_input(list):
     split = [int(x) for x in re.match(regex, list).groups()]
@@ -25,6 +23,9 @@ def create_matrix(data, height, width):
                 elif new_matrix[y][x] != 0:
                     new_matrix[y][x] = -1
     return new_matrix
+
+
+# Solution for first puzzle
 
 
 def count_overlapped(
