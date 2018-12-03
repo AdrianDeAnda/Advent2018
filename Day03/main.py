@@ -8,8 +8,7 @@ regex = "#([0-9]+) @ ([0-9]+),([0-9]+): ([0-9]+)x([0-9]+)"
 
 
 def split_input(list):
-    split = [int(x) for x in re.match(regex, list).groups()]
-    return split
+    return [int(x) for x in re.match(regex, list).groups()]
 
 
 def create_matrix(data, height, width):
