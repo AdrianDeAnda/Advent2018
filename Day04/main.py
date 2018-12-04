@@ -9,7 +9,7 @@ with open("input.txt") as n:
     input = [line.strip() for line in n]
 
 
-regex = r"\[([0-9]{4})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2})\] (.*)"
+regex = r"\[(.*):([0-9]{2})\] (.*)"
 regex_id = r"Guard #([0-9]+) begins shift"
 
 
@@ -22,7 +22,7 @@ def sleepy_periods(list):
     guard_id = sleep = wake = None
     sorted_list = sort_entries(list)
     for entry in sorted_list:
-        year, month, day, hour, minute, action = re.match(regex, entry).groups()
+        unused_data, minute, action = re.match(regex, entry).groups()
         guard = re.match(regex_id, action)
         if guard:
             assert sleep is None and wake is None
