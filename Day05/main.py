@@ -1,43 +1,40 @@
+import string
+
 with open("input.txt") as f:
     og_polymer = f.readline()
 
 # Solution for first puzzle
 
-def same_character(str1: str, str2: str) -> bool:
-    return str1.lower() == str2.lower()
 
+def polymer_reducer(polymer: str) -> str:
+    cases = [(x + x.upper()) for x in string.ascii_lowercase] + [
+        (x.upper() + x) for x in string.ascii_lowercase
+    ]
+    prev_len = len(polymer) + 1
+    while len(polymer) < prev_len:
+        prev_len = len(polymer)
 
-def polymer_reducer(data: str, reduced=True):
-    polymer = data
-    while reduced:
-        reduced = False
-
-        for i in range(1, len(polymer)):
-            char1 = polymer[i - 1]
-            char2 = polymer[i]
-            if same_character(char1, char2) and char1 != char2:
-                polymer = polymer[: i - 1] + polymer[i + 1 :]
-                reduced = True
-                break
+        for c in cases:
+            polymer = polymer.replace(c, "")
 
     return polymer
 
 
-def length_of_polymer(data: str):
+def length_of_polymer(data: str) -> int:
     return len(polymer_reducer(data))
 
 
 assert length_of_polymer("dabAcCaCBAcCcaDA") == 10
 
-# print(f"The size of the polymer is: {length_of_polymer(og_polymer)}")
+print(f"The size of the polymer is: {length_of_polymer(og_polymer)}")
 
 # Solution for second puzzle
 
-def shortest_polymer(polymer: str):
-    characters = {c.lower() for c in polymer}
+
+def shortest_polymer(polymer: str) -> int:
     best = {}
 
-    for c in characters:
+    for c in string.ascii_lowercase:
         polymer_no_char = polymer.replace(c, "").replace(c.upper(), "")
         best[c] = length_of_polymer(polymer_no_char)
 
@@ -47,12 +44,6 @@ def shortest_polymer(polymer: str):
 
 assert shortest_polymer("dabAcCaCBAcCcaDA") == 4
 
-# print(
-#     f"Lowest polymer achievable by removing a character: {shortest_polymer(og_polymer)}"
-# )
-
-# Only assertions are being run as polymer_reducer takes a shit load of time
-# to run and takes an eternity to get answers. Function should be optimized.
-
-# TODO:
-# 1. Fix the polymer_reducer function
+print(
+    f"Lowest polymer achievable by removing a character: {shortest_polymer(og_polymer)}"
+)
