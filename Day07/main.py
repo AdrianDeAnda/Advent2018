@@ -69,7 +69,7 @@ def time_taken(input, alph=alphabet, workers: int = 5, base: int = 60):
     time_left = np.zeros(workers)
     has = set()
 
-    for i in range(1000):
+    for i in range(10000):
         for j in range(workers):
             if working[j] is not None:
                 time_left[j] -= 1
