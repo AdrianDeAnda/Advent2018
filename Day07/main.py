@@ -5,7 +5,7 @@ with open("input.txt") as n:
     input = [line.strip() for line in n]
 
 regex = r"Step ([A-Z]) must be finished before step ([A-Z]) can begin."
-alph = [chr(i) for i in range(ord("A"), ord("Z") + 1)]
+alphabet = [chr(i) for i in range(ord("A"), ord("Z") + 1)]
 
 
 def split_input(instructions: str):
@@ -63,13 +63,13 @@ print(f"Order the steps should be completed: {find_order(input)}")
 # Solution for second puzzle
 
 
-def time_taken(input, workers: int = 5, base: int = 60):
+def time_taken(input, alph=alphabet, workers: int = 5, base: int = 60):
     instructions = ordered_steps(input)
     working = [None] * workers
     time_left = np.zeros(workers)
     has = set()
 
-    for i in range(10000):
+    for i in range(1000):
         for j in range(workers):
             if working[j] is not None:
                 time_left[j] -= 1
@@ -95,5 +95,23 @@ def time_taken(input, workers: int = 5, base: int = 60):
                     time_left[j] = base + ord(k) - ord("A") + 1
                     break
 
+
+assert (
+    time_taken(
+        [
+            "Step C must be finished before step A can begin.",
+            "Step C must be finished before step F can begin.",
+            "Step A must be finished before step B can begin.",
+            "Step A must be finished before step D can begin.",
+            "Step B must be finished before step E can begin.",
+            "Step D must be finished before step E can begin.",
+            "Step F must be finished before step E can begin.",
+        ],
+        [chr(i) for i in range(ord("A"), ord("F") + 1)],
+        2,
+        0,
+    )
+    == 15
+)
 
 print(f"Time taken: {time_taken(input)}")
