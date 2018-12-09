@@ -33,7 +33,7 @@ def marble_game(players: int, points: int, nxt: int = 0):
 
 assert marble_game(9, 25) == 32
 assert marble_game(10, 1618) == 8317
-assert marble_game(13, 7999) == 146_373
+assert marble_game(13, 7999) == 146373
 assert marble_game(17, 1104) == 2764
 assert marble_game(21, 6111) == 54718
 assert marble_game(30, 5807) == 37305
