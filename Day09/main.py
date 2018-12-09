@@ -3,7 +3,7 @@ from collections import deque
 # Solution for first and second puzzle
 
 
-def marble_game(players: int, points: int, crnt: int = 0, nxt: int = 0):
+def marble_game(players: int, points: int, nxt: int = 0):
     scores = [0 for _ in range(players)]
     marbles = deque([0])
 
