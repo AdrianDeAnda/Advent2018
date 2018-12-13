@@ -3,7 +3,6 @@ Not my code, used only to unlock Day 14 as I was filling ill.
 To be redone with own code after not sick anymore.
 """
 
-
 import collections
 import re
 
