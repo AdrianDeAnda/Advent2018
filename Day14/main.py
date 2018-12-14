@@ -2,6 +2,9 @@ def get_digits(value: int = 0):
     return [int(digit) for digit in str(value)]
 
 
+# Solution for first puzzle
+
+
 def recipe_score(value: int = 0):
     digits = get_digits(value)
     scores = [3, 7]
