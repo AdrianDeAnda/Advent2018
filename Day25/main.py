@@ -4,7 +4,7 @@ puzzle = open("input.txt").read().strip().splitlines()
 
 
 def ints(s: str):
-    return list(map(int, re.findall(r"-?\d+", s)))  # thanks mserrano!
+    return list(map(int, re.findall(r"-?\d+", s)))
 
 
 def psub(x, y):
